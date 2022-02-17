@@ -11,13 +11,14 @@ function decrease() {
   display();
 }
 function display() {
-  disp.innerHTML = c;
+  disp.value = c;
+  disp.innerHTML=c;
 }
 function createElements(){
   size=30;
   lg="#EEEEEE";
   dg="#DDDDDD";
-  style="width:"+(size)+"px;height:"+(size)+"px;"+"margin:0px; border:solid 1px "+dg+";float:left;";
+  style="width:"+(size)+"px;height:"+(size)+"px;"+"margin:0px; border:solid 1px "+dg+";float:left;box-sizing: border-box;";
   inc=document.createElement("button");
   inc.innerHTML="+";
   inc.style=style+"background:"+lg+";"+"border:solid 1px "+dg+";border-radius: 0px 5px 5px 0px;";
@@ -26,9 +27,10 @@ function createElements(){
   dec.innerHTML="-";
   dec.style=style+"background:"+lg+";"+"border:solid 1px "+dg+";border-radius:5px 0px 0px 5px;";
   dec.addEventListener("click",decrease);
-  disp=document.createElement("span");
+  disp=document.createElement("input");
   disp.innerHTML=0;
   disp.style="text-align:center;display:block;"+style;
+  disp.setAttribute("readonly","1");
   main=document.getElementById("main");
   main.appendChild(dec);
   main.appendChild(disp);
